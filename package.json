@@ -4,7 +4,7 @@
   "description": "React App Skeleton",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --content-base public/",
+    "start": "webpack-dev-server --content-base public/ --open",
     "build": "webpack -w"
   },
   "author": "Julio Vásconez",
@@ -23,6 +23,7 @@
   "devDependencies": {
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "file-loader": "^0.11.2",
     "postcss-loader": "^2.0.6",
     "url-loader": "^0.5.9"
