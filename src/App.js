@@ -7,7 +7,7 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <div className="saludo" >Hello Marzio</div>
+      <div ><h1>React App Skeleton</h1></div>
     );
   }
 }
