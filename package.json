@@ -10,8 +10,13 @@
   "author": "Julio Vásconez",
   "license": "MIT",
   "dependencies": {
+    "mobx": "^4.2.0",
+    "mobx-react": "^5.0.0",
     "react": "16.3.2",
-    "react-dom": "16.3.2"
+    "react-dom": "16.3.2",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.79.1",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "babel": "6.23.0",
