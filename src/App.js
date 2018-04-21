@@ -7,7 +7,7 @@ export default class App extends React.Component {
   }
   render() {
     return (
-      <div ><h1>React App Skeleton</h1></div>
+      <div ><h1>React App Skeleton 2.0</h1></div>
     );
   }
 }

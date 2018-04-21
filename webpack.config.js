@@ -1,4 +1,4 @@
-var path = require("path");
+const path = require("path");
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -6,24 +6,11 @@ module.exports = {
     	path: path.resolve(__dirname, "public"),
   },
   module: {
-    loaders: [
+    rules:[
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015'],
-          plugins: [ "transform-class-properties","transform-decorators-legacy","transform-object-rest-spread"],
-        }
-      },
-      {
-        test: /\.jsx$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['react', 'es2015'],
-          plugins: [ "transform-class-properties","transform-decorators-legacy","transform-object-rest-spread"],
-        }
       },
       {
         exclude: [
@@ -36,38 +23,41 @@ module.exports = {
           /\.jpe?g$/,
           /\.png$/,
         ],
-        loader: require.resolve('file-loader'),
-        options: {
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
+        use: [
+          {
+            loader:require.resolve('file-loader'),
+            options: {name: 'static/media/[name].[hash:8].[ext]'}
+          }
+        ]
+        ,
+      },
+      {
+            test: /\.(css|scss)$/,
+            use: [{
+                loader: "style-loader"
+            }, {
+                loader: "css-loader", options: {
+                    sourceMap: true
+                }
+            }, {
+                loader: "sass-loader", options: {
+                    sourceMap: true
+                }
+            }]
       },
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
-        loader: require.resolve('url-loader'),
-        options: {
-          limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]',
-        },
-      },
-      {
-        test: /\.css$/,
         use: [
-          require.resolve('style-loader'),
-          {
-            loader: require.resolve('css-loader'),
-            options: {
-              importLoaders: 1,
-            },
-          },
-          {
-            loader:'postcss-loader',
-            options: {
-              ident: 'postcss',
-            },
-          },
-        ],
+          {loader:require.resolve('url-loader'),options: {
+            limit: 10000,
+            name: 'static/media/[name].[hash:8].[ext]',
+          },}
+        ]
+
       },
-    ]
+
+    ],
+
+
   }
 }
-
