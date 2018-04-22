@@ -15,8 +15,11 @@ export default  @inject('store') @observer  class Bar extends Component {
     this.setState({text:e.target.value});
   }
   onAddClick(){
-    this.props.store.addTodo(this.state.text);
-    this.setState({text:""});
+    if(this.state.text.length>0)
+    {
+      this.props.store.addTodo(this.state.text);
+      this.setState({text:""});
+    }
   }
   onClearClick(){
     this.setState({alertclear:true})
@@ -38,7 +41,7 @@ export default  @inject('store') @observer  class Bar extends Component {
     <Menu.Item style={{width:"70%"}} position='right'>
       <Input
         className='icon' value={this.state.text} onChange={this.onTextChange} fluid placeholder='Add new TODO...'
-        action={{ color: 'teal', labelPosition: 'right', icon: 'add', content: 'Add',onClick:()=>{this.onAddClick()} }}
+        action={{ color: 'teal',disabled:this.state.text.length==0, labelPosition: 'right', icon: 'add', content: 'Add',onClick:()=>{this.onAddClick()} }}
       />
     </Menu.Item>
     {(this.state.alertclear?
