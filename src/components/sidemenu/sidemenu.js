@@ -11,9 +11,6 @@ export default @inject('store') @observer class  SideMenu extends Component {
   render() {
     return (
       <Menu vertical fluid>
-        <Menu.Item>
-          <Input icon='search' placeholder='Search mail...' />
-        </Menu.Item>
         <Menu.Item  active={this.props.store.params.get('filter')=="all"} onClick={()=>{this.onFilterSelected('all')}}  >
           <Label >{this.props.store.pending_tasks+this.props.store.done_tasks}</Label>
           All

@@ -24,3 +24,13 @@
 	text-decoration: line-through;
 	color: #b86ae8;
 }
+.todo-input{
+	background: none;
+	border: none !important;
+	width: auto;
+}
+.todo-input:focus{
+	background: none;
+	border: none !important;
+
+}

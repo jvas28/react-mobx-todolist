@@ -2,6 +2,7 @@ import React, { Component} from 'react';
 import {Grid} from 'semantic-ui-react';
 import SideMenu from '../sidemenu/sidemenu';
 import TodoList from '../todolist/todolist';
+
 export default class Content extends Component {
   constructor(props) {
     super(props);

@@ -50,7 +50,7 @@ export default  @inject('store') @observer  class Bar extends Component {
       <Icon name='refresh' /> Clear
     </Menu.Item>
     )}
-    <Menu.Item position="right" >
+    <Menu.Item as="a" href="https://github.com/jvas28" target="_blank" position="right" >
       by jvas28
     </Menu.Item>
   </Menu>
